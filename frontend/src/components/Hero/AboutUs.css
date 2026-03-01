@@ -1,0 +1,41 @@
+.about-us {
+  max-width: 620px;
+  width: 100%;
+}
+
+.about-title {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.about-title span {
+  color: white;
+}
+
+.about-description {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .about-title {
+    margin-bottom: 14px;
+  }
+
+  .about-description {
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-us {
+    max-width: 640px;
+  }
+}
+

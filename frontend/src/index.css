@@ -1,0 +1,42 @@
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Keep theme/background unchanged */
+body {
+  margin: 0;
+  background-color: #000;
+  color: white;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: clip;
+}
+
+section {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
