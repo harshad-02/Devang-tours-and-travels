@@ -3,6 +3,7 @@ import LightRays from "./assets/background/LightRays.jsx";
 import Hero from "./components/Hero/Hero.jsx";
 import Driver from "./components/Driver/Driver.jsx";
 import Gallery from "./components/Gallary/Gallery.jsx";
+import Reviews from "./components/Reviews/Reviews.jsx";
 import "./index.css";
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Hero /> {/* 👈 THIS is what you were missing */}
         <Driver />
         <Gallery />
+        < Reviews />
       </main>
     </div>
   );

@@ -1,9 +1,12 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../Styles/Header.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="header">
@@ -14,20 +17,25 @@ export default function Header() {
 
       {/* Desktop Nav */}
       <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#booking" className="book-btn">Book Now</a>
-        <Link to="/admin" className="admin-link">Admin</Link>
+        <a href="#home" onClick={closeMenu}>Home</a>
+        <a href="#gallery" onClick={closeMenu}>Gallery</a>
+        <a href="#reviews" onClick={closeMenu}>Reviews</a>
+        <a href="#booking" className="book-btn" onClick={closeMenu}>Book Now</a>
+        <Link to="/admin" className="admin-link" onClick={closeMenu}>Admin</Link>
       </nav>
 
       {/* Hamburger */}
-      <div 
-        className="hamburger" 
-        onClick={() => setMenuOpen(!menuOpen)}
+      <button
+        type="button"
+        className={`hamburger ${menuOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
       >
-        ☰
-      </div>
+        <span />
+        <span />
+        <span />
+      </button>
     </header>
   );
 }
