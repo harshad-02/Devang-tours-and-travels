@@ -4,7 +4,10 @@ import Hero from "./components/Hero/Hero.jsx";
 import Driver from "./components/Driver/Driver.jsx";
 import Gallery from "./components/Gallary/Gallery.jsx";
 import Reviews from "./components/Reviews/Reviews.jsx";
+import Booking from "./components/Booking/Booking.jsx";
+import TripRequestPopup from "./components/TripRequestPopup/TripRequestPopup.jsx";
 import "./index.css";
+
 function App() {
   return (
     <div className="app">
@@ -26,15 +29,17 @@ function App() {
         />
       </div>
 
-      {/* Header */}
       <Header />
 
       <main className="content">
-        <Hero /> {/* 👈 THIS is what you were missing */}
+        <Hero />
         <Driver />
         <Gallery />
-        < Reviews />
+        <Reviews />
+        <Booking />
       </main>
+
+      <TripRequestPopup />
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function Driver() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }, // 30% visible triggers animation
+      { threshold: 0.3 }, 
     );
 
     if (cardRef.current) {
@@ -38,7 +38,7 @@ export default function Driver() {
           <h2>Meet Your Driver</h2>
 
           <p>
-            <strong>Name:</strong> Guruprasad Dudye
+            <strong>Name:</strong> Sumit Deshpandey
           </p>
           <p>
             <strong>Experience:</strong> 7 Years of Professional Driving
@@ -48,7 +48,7 @@ export default function Driver() {
             <strong>Contact:</strong> +91 8655890247
           </p>
           <p>
-            <strong>Location:</strong> Kuve, Lanja
+            <strong>Location:</strong> Hadapsar, Pune
           </p>
 
           <p className="driver-intro">
