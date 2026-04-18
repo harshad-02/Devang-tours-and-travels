@@ -73,12 +73,14 @@
 ========================= */
 
 .hero-btn {
+  display: inline-block;
   padding: 14px 28px;
   border-radius: 30px;
   border: none;
   background: white;
   color: black;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
   transition: 0.3s ease;
   width: fit-content;

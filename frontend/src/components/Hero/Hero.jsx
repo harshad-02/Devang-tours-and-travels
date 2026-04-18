@@ -4,18 +4,15 @@ import "./Hero.css";
 
 export default function Hero() {
   return (
-    <section className="hero">
-      {/* Left Side */}
+    <section className="hero" id="home">
       <div className="hero-left">
         <AboutUs />
-        <button className="hero-btn">Book Your Trip</button>
+        <a href="#booking" className="hero-btn">Book Your Trip</a>
       </div>
 
-      {/* Right Side */}
       <div className="hero-right">
         <CarModel />
       </div>
-    
     </section>
   );
 }

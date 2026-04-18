@@ -52,7 +52,7 @@ export default function Driver() {
           </p>
 
           <p className="driver-intro">
-            My name is Guruprasad Dudye, and I am a professional driver with 7
+            My name is Sumit Deshpandey, and I am a professional driver with 7
             years of safe driving experience. I am completely non-addicted,
             punctual, and committed to ensuring passenger safety and comfort. I
             have experience in both day and night driving, and I always strive

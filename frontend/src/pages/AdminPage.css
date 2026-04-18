@@ -1,0 +1,252 @@
+.admin-page {
+  min-height: 100vh;
+  padding: 8rem 1rem 3rem;
+}
+
+.admin-panel {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 214, 153, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.admin-kicker {
+  margin: 0;
+  color: rgba(255, 215, 160, 0.9);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+.admin-title {
+  margin: 0.6rem 0 0;
+  color: #fff7ed;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.admin-login-form,
+.admin-requests {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 22px;
+  background: rgba(12, 12, 12, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.admin-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.admin-field span {
+  color: rgba(255, 245, 233, 0.84);
+}
+
+.admin-field input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font: inherit;
+  outline: none;
+}
+
+.admin-field input:focus {
+  border-color: rgba(255, 214, 153, 0.65);
+  box-shadow: 0 0 0 3px rgba(255, 214, 153, 0.12);
+}
+
+.admin-submit,
+.admin-logout {
+  margin-top: 1rem;
+  padding: 0.9rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffd59b, #ff9a3d);
+  color: #201003;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-submit:disabled {
+  cursor: wait;
+  opacity: 0.82;
+}
+
+.admin-error,
+.admin-empty,
+.admin-count {
+  margin: 0.9rem 0 0;
+  color: rgba(255, 241, 224, 0.84);
+}
+
+.admin-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-section + .admin-section {
+  margin-top: 2rem;
+}
+
+.admin-section-header h2 {
+  margin: 0;
+  color: #fff4e2;
+  font-size: 1.3rem;
+}
+
+.admin-section-header p {
+  margin: 0.45rem 0 1rem;
+  color: rgba(255, 241, 224, 0.72);
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff7ed;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.95rem 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-table th {
+  color: rgba(255, 220, 181, 0.85);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.admin-cell-subtext {
+  margin-top: 0.35rem;
+  color: rgba(255, 241, 224, 0.65);
+  font-size: 0.9rem;
+}
+
+.admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 116px;
+}
+
+.admin-action {
+  padding: 0.7rem 0.95rem;
+  border: 0;
+  border-radius: 999px;
+  color: #201003;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-action:disabled {
+  cursor: wait;
+  opacity: 0.78;
+}
+
+.admin-action-confirm {
+  background: linear-gradient(135deg, #ffe0ad, #ffae4f);
+}
+
+.admin-action-reject {
+  background: linear-gradient(135deg, #ffd2c4, #ff7a59);
+}
+
+.admin-action-done {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #d7f1bf, #8ed35f);
+}
+
+.admin-link {
+  color: #ffd59b;
+  text-decoration: none;
+}
+
+.admin-link:hover {
+  text-decoration: underline;
+}
+
+.admin-schedule-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-schedule-card {
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-schedule-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.admin-schedule-top h3 {
+  margin: 0;
+  color: #fff7ed;
+}
+
+.admin-schedule-top p {
+  margin: 0.25rem 0 0;
+  color: rgba(255, 241, 224, 0.72);
+}
+
+.admin-schedule-badge {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 213, 155, 0.14);
+  border: 1px solid rgba(255, 213, 155, 0.4);
+  color: #ffd59b;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-schedule-line {
+  margin: 0.85rem 0 0;
+  color: rgba(255, 241, 224, 0.88);
+}
+
+@media (max-width: 640px) {
+  .admin-page {
+    padding: 7rem 0.75rem 2rem;
+  }
+
+  .admin-login-form,
+  .admin-requests {
+    padding: 1rem;
+  }
+
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-schedule-top {
+    flex-direction: column;
+  }
+}

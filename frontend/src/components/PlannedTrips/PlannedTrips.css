@@ -1,0 +1,311 @@
+.planned-trips-section {
+  padding: 1rem 1rem 5.5rem;
+}
+
+.planned-trips-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.4rem, 2.5vw, 2.2rem);
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 164, 76, 0.18), transparent 35%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 214, 153, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+}
+
+.planned-trips-header {
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+.planned-trips-kicker {
+  margin: 0;
+  color: rgba(255, 215, 160, 0.9);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.planned-trips-title {
+  margin: 0.6rem 0 0;
+  color: #fff7ed;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.15;
+}
+
+.planned-trips-description {
+  margin: 1rem 0 0;
+  color: rgba(255, 247, 237, 0.78);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.planned-trips-swiper-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-inline: clamp(2.2rem, 6vw, 4rem);
+}
+
+.planned-trips-swiper {
+  overflow: visible;
+  padding-top: 2rem;
+  padding-bottom: 2.55rem;
+}
+
+.planned-trips-slide {
+  box-sizing: border-box;
+  height: auto;
+  z-index: 1;
+  padding-block: 1rem 1.5rem;
+  opacity: 0.88;
+}
+
+.planned-trip-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  padding: 1.35rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.82), 0 0 34px rgba(255, 215, 0, 0.08);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.planned-trips-slide.swiper-slide-active .planned-trip-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 42px 96px rgba(0, 0, 0, 0.96);
+}
+
+.planned-trips-slide.swiper-slide-active .planned-trip-card {
+  background: #111111;
+  background-image: none;
+  opacity: 1;
+  filter: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-color: rgba(255, 255, 255, 0.34);
+  transform: translateY(-12px) scale(1.06);
+  box-shadow: 0 50px 118px rgba(0, 0, 0, 0.97), 0 0 42px rgba(255, 213, 155, 0.12);
+}
+
+.planned-trips-slide.swiper-slide-prev .planned-trip-card,
+.planned-trips-slide.swiper-slide-next .planned-trip-card {
+  opacity: 0.92;
+  filter: brightness(0.8) saturate(0.9);
+  box-shadow: 0 34px 78px rgba(0, 0, 0, 0.9), 0 0 28px rgba(255, 213, 155, 0.14);
+}
+
+.planned-trips-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next)
+  .planned-trip-card {
+  opacity: 0.58;
+  filter: brightness(0.62) saturate(0.82);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.7);
+}
+
+.planned-trip-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.planned-trip-index {
+  color: rgba(255, 223, 192, 0.72);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.planned-trip-duration {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 213, 155, 0.12);
+  border: 1px solid rgba(255, 213, 155, 0.28);
+  color: #ffd59b;
+  font-size: 0.8rem;
+}
+
+.planned-trip-title {
+  margin: 0;
+  color: #fff4e2;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.planned-trip-summary {
+  margin: 0;
+  color: rgba(255, 245, 233, 0.74);
+  line-height: 1.65;
+}
+
+.planned-trip-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.planned-trip-highlight {
+  padding: 0.42rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 245, 233, 0.92);
+  font-size: 0.82rem;
+}
+
+.planned-trip-button {
+  margin-top: auto;
+  padding: 0.9rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffd59b, #ff9a3d);
+  color: #201003;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  box-shadow: 0 16px 32px rgba(255, 154, 61, 0.24);
+}
+
+.planned-trip-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(255, 154, 61, 0.3);
+}
+
+.planned-trips-nav {
+  position: absolute;
+  top: 45%;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f3f6ff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 220ms ease, border-color 220ms ease,
+    background-color 220ms ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.planned-trips-nav svg {
+  width: 16px;
+  height: 16px;
+}
+
+.planned-trips-nav:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.planned-trips-nav-prev {
+  left: 0.8rem;
+}
+
+.planned-trips-nav-next {
+  right: 0.8rem;
+}
+
+.planned-trips-swiper .swiper-pagination-bullets {
+  bottom: 0;
+}
+
+.planned-trips-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+}
+
+.planned-trips-swiper .swiper-pagination-bullet-active {
+  background: #e3ca8a;
+}
+
+@media (max-width: 1199px) {
+  .planned-trips-shell {
+    width: min(1180px, 100%);
+  }
+
+  .planned-trips-swiper-wrapper {
+    padding-inline: clamp(1.5rem, 5vw, 2.4rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .planned-trips-section {
+    padding: 0.5rem 0.75rem 5rem;
+  }
+
+  .planned-trips-shell {
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  .planned-trips-swiper-wrapper {
+    padding-inline: 0.6rem;
+  }
+
+  .planned-trips-swiper {
+    padding-top: 0.5rem;
+    padding-bottom: 2.35rem;
+  }
+
+  .planned-trip-card {
+    padding: 1.1rem;
+  }
+
+  .planned-trips-slide.swiper-slide-active .planned-trip-card,
+  .planned-trip-card:hover {
+    transform: none;
+  }
+
+  .planned-trips-nav {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    top: 42%;
+  }
+
+  .planned-trips-nav-prev {
+    left: 0.25rem;
+  }
+
+  .planned-trips-nav-next {
+    right: 0.25rem;
+  }
+
+  .planned-trips-nav svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .planned-trips-swiper {
+    padding-top: 2.4rem;
+  }
+
+  .planned-trips-slide.swiper-slide-active {
+    z-index: 3;
+  }
+
+  .planned-trips-slide.swiper-slide-prev,
+  .planned-trips-slide.swiper-slide-next {
+    z-index: 2;
+  }
+}

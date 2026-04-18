@@ -1,12 +1,14 @@
-﻿import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../../Styles/Header.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
+  const sectionLink = (sectionId) => (pathname === "/" ? `#${sectionId}` : `/#${sectionId}`);
 
   return (
     <header className="header">
@@ -15,16 +17,14 @@ export default function Header() {
         <h2 className="brand-name">Devang Tours & Travels</h2>
       </div>
 
-      {/* Desktop Nav */}
       <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <a href="#home" onClick={closeMenu}>Home</a>
-        <a href="#gallery" onClick={closeMenu}>Gallery</a>
-        <a href="#reviews" onClick={closeMenu}>Reviews</a>
-        <a href="#booking" className="book-btn" onClick={closeMenu}>Book Now</a>
+        <a href={sectionLink("home")} onClick={closeMenu}>Home</a>
+        <a href={sectionLink("gallery")} onClick={closeMenu}>Gallery</a>
+        <a href={sectionLink("reviews")} onClick={closeMenu}>Reviews</a>
+        <a href={sectionLink("booking")} className="book-btn" onClick={closeMenu}>Book Now</a>
         <Link to="/admin" className="admin-link" onClick={closeMenu}>Admin</Link>
       </nav>
 
-      {/* Hamburger */}
       <button
         type="button"
         className={`hamburger ${menuOpen ? "active" : ""}`}
