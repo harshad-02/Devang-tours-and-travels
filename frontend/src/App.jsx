@@ -8,7 +8,9 @@ import Reviews from "./components/Reviews/Reviews.jsx";
 import Booking from "./components/Booking/Booking.jsx";
 import PlannedTrips from "./components/PlannedTrips/PlannedTrips.jsx";
 import TripRequestPopup from "./components/TripRequestPopup/TripRequestPopup.jsx";
+import PlannedTripPopup from "./components/PlannedTripPopup/PlannedTripPopup.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
+import PlannedTripBookingPage from "./pages/PlannedTripBookingPage.jsx";
 import "./index.css";
 
 function HomePage() {
@@ -23,7 +25,7 @@ function HomePage() {
         <PlannedTrips />
       </main>
 
-      <TripRequestPopup />
+      <PlannedTripPopup />
     </>
   );
 }
@@ -53,8 +55,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/planned-trip-booking/:slug" element={<PlannedTripBookingPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
+
+      <TripRequestPopup />
     </div>
   );
 }

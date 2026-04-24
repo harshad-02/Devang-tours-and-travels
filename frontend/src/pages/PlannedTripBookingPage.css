@@ -1,0 +1,75 @@
+.planned-trip-booking-page {
+  padding: 6.5rem 1rem 4rem;
+}
+
+.planned-trip-booking-hero {
+  width: min(1180px, 100%);
+  margin: 0 auto 1.5rem;
+}
+
+.planned-trip-booking-copy {
+  padding: clamp(1.4rem, 2.6vw, 2.2rem);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 164, 76, 0.18), transparent 35%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 214, 153, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.planned-trip-booking-kicker {
+  margin: 0;
+  color: rgba(255, 215, 160, 0.9);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.planned-trip-booking-title {
+  margin: 0.55rem 0 0;
+  color: #fff7ed;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.planned-trip-booking-summary,
+.planned-trip-booking-route,
+.planned-trip-booking-notes {
+  margin: 1rem 0 0;
+  color: rgba(255, 247, 237, 0.82);
+  line-height: 1.7;
+}
+
+.planned-trip-booking-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.planned-trip-booking-tag {
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 214, 153, 0.18);
+  color: #fff2dd;
+  font-size: 0.88rem;
+}
+
+.planned-trip-booking-back {
+  display: inline-flex;
+  margin-top: 1.2rem;
+  color: #ffd59b;
+  text-decoration: none;
+}
+
+.planned-trip-booking-form-section {
+  padding-top: 0;
+}
+
+@media (max-width: 767px) {
+  .planned-trip-booking-page {
+    padding: 5.5rem 0.75rem 3rem;
+  }
+}

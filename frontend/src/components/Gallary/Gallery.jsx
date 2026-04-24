@@ -51,7 +51,7 @@ export default function Gallery() {
           watchSlidesProgress={true}
           loop={true}
           autoplay={{
-            delay: 2800,
+            delay: 2200,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}

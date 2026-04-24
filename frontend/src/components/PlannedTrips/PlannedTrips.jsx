@@ -1,64 +1,29 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import { usePlannedTripPopup } from "../../context/PlannedTripPopupContext.jsx";
+import { plannedTrips } from "../../data/plannedTrips.js";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./PlannedTrips.css";
 
-const plannedTrips = [
-  {
-    title: "Ratnagiri Darshan",
-    duration: "Full day coastal route",
-    summary:
-      "A scenic Konkan circuit covering beaches, temples, city viewpoints, and local food stops.",
-    highlights: ["Ganpatipule", "Ratnadurg Fort", "Thiba Palace"],
-  },
-  {
-    title: "Malvan Darshan",
-    duration: "Leisure + sightseeing day",
-    summary:
-      "Ideal for sea-facing travel with heritage stops, local markets, and relaxed beach-side time.",
-    highlights: ["Sindhudurg Fort", "Tarkarli", "Rock Garden"],
-  },
-  {
-    title: "Pune Darshan",
-    duration: "City exploration plan",
-    summary:
-      "A balanced Pune city ride with cultural landmarks, shopping zones, and family-friendly stops.",
-    highlights: ["Shaniwar Wada", "Dagdusheth", "Saras Baug"],
-  },
-  {
-    title: "Mumbai Darshan",
-    duration: "Popular city highlights",
-    summary:
-      "A full Mumbai city experience designed for major landmarks, marine views, and iconic routes.",
-    highlights: ["Gateway of India", "Marine Drive", "Juhu Beach"],
-  },
-  {
-    title: "Goa Trip",
-    duration: "Weekend escape route",
-    summary:
-      "A relaxed long-distance plan for beaches, nightlife spots, churches, and scenic coastal roads.",
-    highlights: ["Calangute", "Baga", "Old Goa"],
-  },
-  {
-    title: "Pink City Trip",
-    duration: "Heritage city journey",
-    summary:
-      "A Jaipur-focused travel plan with royal architecture, colorful bazaars, and signature city viewpoints.",
-    highlights: ["Hawa Mahal", "Amber Fort", "City Palace"],
-  },
-  {
-    title: "Mahabaleshwar Trip",
-    duration: "Hill station getaway",
-    summary:
-      "A refreshing hill route with valley points, strawberry stops, lake views, and cool-weather breaks.",
-    highlights: ["Mapro Garden", "Venna Lake", "Arthur Seat"],
-  },
-];
+const plannedTripsLoop = [...plannedTrips, ...plannedTrips, ...plannedTrips];
+const plannedTripsLoopStartIndex = plannedTrips.length;
 
-function PlannedTripCard({ index, title, duration, summary, highlights }) {
+function PlannedTripCard({
+  index,
+  slug,
+  title,
+  duration,
+  summary,
+  highlights,
+  route,
+  coverage,
+  notes,
+}) {
+  const { showTripPopup } = usePlannedTripPopup();
+
   return (
     <article className="planned-trip-card">
       <div className="planned-trip-top">
@@ -77,7 +42,23 @@ function PlannedTripCard({ index, title, duration, summary, highlights }) {
         ))}
       </div>
 
-      <button type="button" className="planned-trip-button">
+      <button
+        type="button"
+        className="planned-trip-button"
+        onClick={() =>
+          showTripPopup({
+            index,
+            slug,
+            title,
+            duration,
+            summary,
+            highlights,
+            route,
+            coverage,
+            notes,
+          })
+        }
+      >
         More Details
       </button>
     </article>
@@ -85,6 +66,16 @@ function PlannedTripCard({ index, title, duration, summary, highlights }) {
 }
 
 export default function PlannedTrips() {
+  const normalizeLoopPosition = (swiper) => {
+    const totalTrips = plannedTrips.length;
+
+    if (swiper.activeIndex < totalTrips) {
+      swiper.slideTo(swiper.activeIndex + totalTrips, 0, false);
+    } else if (swiper.activeIndex >= totalTrips * 2) {
+      swiper.slideTo(swiper.activeIndex - totalTrips, 0, false);
+    }
+  };
+
   return (
     <section className="planned-trips-section" id="planned-trips">
       <div className="planned-trips-shell">
@@ -100,14 +91,9 @@ export default function PlannedTrips() {
         <div className="planned-trips-swiper-wrapper">
           <Swiper
             modules={[Autoplay, EffectCoverflow, Pagination, Navigation]}
-            loop={true}
-            loopedSlides={plannedTrips.length}
-            loopAdditionalSlides={plannedTrips.length}
-            initialSlide={1}
+            initialSlide={plannedTripsLoopStartIndex}
             centeredSlides={true}
-            centeredSlidesBounds={true}
             watchSlidesProgress={true}
-            watchOverflow={true}
             grabCursor={true}
             speed={850}
             spaceBetween={56}
@@ -122,14 +108,17 @@ export default function PlannedTrips() {
             }}
             autoplay={{
               delay: 2800,
-              disableOnInteraction: true,
+              disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
             observer={true}
             observeParents={true}
-            pagination={{ clickable: true }}
+            pagination={{ clickable: true, dynamicBullets: true }}
             onInit={(swiper) => {
-              swiper.slideToLoop(0, 0, false);
+              swiper.slideTo(plannedTripsLoopStartIndex, 0, false);
+            }}
+            onSlideChangeTransitionEnd={(swiper) => {
+              normalizeLoopPosition(swiper);
             }}
             navigation={{
               prevEl: ".planned-trips-nav-prev",
@@ -154,9 +143,9 @@ export default function PlannedTrips() {
             }}
             className="planned-trips-swiper"
           >
-            {plannedTrips.map((trip, index) => (
-              <SwiperSlide key={trip.title} className="planned-trips-slide">
-                <PlannedTripCard index={index} {...trip} />
+            {plannedTripsLoop.map((trip, index) => (
+              <SwiperSlide key={`${trip.title}-${index}`} className="planned-trips-slide">
+                <PlannedTripCard index={index % plannedTrips.length} {...trip} />
               </SwiperSlide>
             ))}
           </Swiper>
